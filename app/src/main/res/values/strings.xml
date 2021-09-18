@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SberSchoolLesson7HWK</string>
+    <string name="second_activity_intent_flag">VALUE_LIST</string>
+    <string name="length">LENGTH</string>
+    <string name="area">AREA</string>
+    <string name="mass">MASS</string>
+    <string name="length_millimeter">MILLIMETER</string>
+    <string name="length_meter">METER</string>
+    <string name="length_centimeter">CENTIMETER</string>
+    <string name="length_kilometer">KILOMETER</string>
+    <string name="length_inch">INCH</string>
+    <string name="length_foot">FOOT</string>
+    <string name="length_yard">YARD</string>
+    <string name="length_mile">MILE</string>
+    <string name="length_nautical_mile">NAUTICAL MILE</string>
+    <string name="area_square_millimeter">SQUARE MILLIMETER</string>
+    <string name="area_square_centimeter">SQUARE CENTIMETER</string>
+    <string name="area_square_kilometer">SQUARE KILOMETER</string>
+    <string name="area_square_meter">SQUARE METER</string>
+    <string name="area_square_inch">SQUARE INCH</string>
+    <string name="area_square_foot">SQUARE FOOT</string>
+    <string name="area_acre">ACRE</string>
+    <string name="area_hectare">HECTARE</string>
+    <string name="mass_pound">POUND</string>
+    <string name="mass_ounce">OUNCE</string>
+    <string name="mass_kilogram">KILOGRAM</string>
+    <string name="mass_gram">GRAM</string>
+    <string name="mass_ton">TON</string>
+    <string name="mass_hundredweight">HUNDREDWEIGHT</string>
+    <string name="mass_milligram">MILLIGRAM</string>
+</resources>
