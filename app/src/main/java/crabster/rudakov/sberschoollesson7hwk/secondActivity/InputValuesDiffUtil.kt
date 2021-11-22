@@ -1,4 +1,4 @@
-package crabster.rudakov.sberschoollesson7hwk
+package crabster.rudakov.sberschoollesson7hwk.secondActivity
 
 import androidx.recyclerview.widget.DiffUtil
 import crabster.rudakov.sberschoollesson7hwk.data.InputValues
@@ -23,9 +23,9 @@ class InputValuesDiffUtil(
     override fun getNewListSize(): Int {
         return newInputValues.size
     }
+
     /**
-     * Метод сравнивает каждый объект по величине его значения(введённая
-     * пользователем цифра), чтобы в принципе определить, разные ли это объекты
+     * Метод определяет, изменились ли значения newItem и oldItem
      * */
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldInputValue: InputValues = oldInputValues[oldItemPosition]
@@ -34,14 +34,13 @@ class InputValuesDiffUtil(
     }
 
     /**
-     * Метод сравнивает каждый объект уже по всем полям, чтобы определить,
-     * поменялось ли что-то из того, что отображается на экране
+     * Метод определяет, являются ли newItem и oldItem одним и тем же
+     * элементом
      * */
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldInputValue: InputValues = oldInputValues[oldItemPosition]
         val newInputValue: InputValues = newInputValues[newItemPosition]
-        return oldInputValue.values == newInputValue.values &&
-                oldInputValue.inputValue == newInputValue.inputValue
+        return oldInputValue == newInputValue
     }
 
 }

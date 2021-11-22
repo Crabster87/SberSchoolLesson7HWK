@@ -2,6 +2,7 @@ package crabster.rudakov.sberschoollesson7hwk
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import crabster.rudakov.sberschoollesson7hwk.data.RecyclerViewObject
 
@@ -14,11 +15,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val adapterMainActivity = AdapterMainActivity(this)
+        val adapterMainActivity = MainAdapter(this)
         adapterMainActivity.values = RecyclerViewObject.dataList
 
         val recyclerView: RecyclerView = findViewById(R.id.list_values)
         recyclerView.adapter = adapterMainActivity
+        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
     }
 
 }

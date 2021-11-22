@@ -10,25 +10,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import crabster.rudakov.sberschoollesson7hwk.Converter
-import crabster.rudakov.sberschoollesson7hwk.InputValuesDiffUtil
 import crabster.rudakov.sberschoollesson7hwk.R
 import crabster.rudakov.sberschoollesson7hwk.data.InputValues
 import java.lang.NumberFormatException
 
-class HolderSecondActivity(itemView: View, private val context: Context) :
+class SecondHolder(itemView: View, private val context: Context) :
     RecyclerView.ViewHolder(itemView) {
 
     /**
      * Метод отображает названия и величины в соотвествующих полях и назначает слушателей
      * событий
      * */
-    fun bind(inputValue: InputValues, adapter: AdapterSecondActivity) {
+    fun bind(inputValue: InputValues, adapter: SecondAdapter) {
         val unitName = itemView.findViewById<TextView>(R.id.value_name_tint)
         unitName.text = context.getString(inputValue.values.name)
 
         val unitValue = itemView.findViewById<EditText>(R.id.value_unit)
-        unitValue.text =
-            Editable.Factory.getInstance().newEditable(inputValue.inputValue.toString())
+        unitValue.setText(inputValue.inputValue.toString())
 
         setFocusListener(unitValue, adapter)
         setTextWatcher(unitValue, adapter)
@@ -39,7 +37,7 @@ class HolderSecondActivity(itemView: View, private val context: Context) :
      * элемент, на котором произошло фокусирование, в самое начало списка и уведомляет об
      * этом адаптер
      * */
-    private fun setFocusListener(unitValue: EditText, adapter: AdapterSecondActivity) {
+    private fun setFocusListener(unitValue: EditText, adapter: SecondAdapter) {
         unitValue.setOnFocusChangeListener { _, _ ->
             val removedElement = adapter.inputValues[adapterPosition]
             adapter.inputValues.remove(removedElement)
@@ -57,7 +55,7 @@ class HolderSecondActivity(itemView: View, private val context: Context) :
      * конвертер, передавая ему уже измененный список. Далее DiffUtil проверяет списки и
      * уведомляет адаптер
      * */
-    private fun setTextWatcher(unitValue: EditText, adapter: AdapterSecondActivity) {
+    private fun setTextWatcher(unitValue: EditText, adapter: SecondAdapter) {
         unitValue.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

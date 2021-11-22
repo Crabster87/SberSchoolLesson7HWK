@@ -1,12 +1,15 @@
 package crabster.rudakov.sberschoollesson7hwk.secondActivity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import crabster.rudakov.sberschoollesson7hwk.R
 import crabster.rudakov.sberschoollesson7hwk.data.InputValues
 import crabster.rudakov.sberschoollesson7hwk.data.Values
 
-import crabster.rudakov.sberschoollesson7hwk.R
 
 /**
  * Вторичная Activity, отображающая список величин, доступных для конвертации
@@ -22,11 +25,12 @@ class SecondActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.list_units)
 
         values = intent.getParcelableExtra(getString(R.string.second_activity_intent_flag))!!
-        val adapterSecondActivity = AdapterSecondActivity(this)
+        val adapterSecondActivity = SecondAdapter(this)
 
-        makeDisplayList()
+        adapterSecondActivity.submitList(makeDisplayList())
         adapterSecondActivity.inputValues = makeDisplayList()
         recyclerView.adapter = adapterSecondActivity
+        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
     }
 
     /**
@@ -39,6 +43,20 @@ class SecondActivity : AppCompatActivity() {
             inputValues.add(InputValues(values.units[i], 0.0))
         }
         return inputValues
+    }
+
+    companion object {
+
+        /**
+         * Метод создаёт интент, который будет использован для вызова текущей
+         * активности из MainActivity
+         * */
+        fun createIntent(context: Context, value: Values): Intent {
+            val intent = Intent(context, SecondActivity::class.java)
+            intent.putExtra(context.getString(R.string.second_activity_intent_flag), value)
+            return intent
+        }
+
     }
 
 }

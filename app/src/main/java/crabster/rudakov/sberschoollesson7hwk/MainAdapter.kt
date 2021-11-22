@@ -10,26 +10,26 @@ import crabster.rudakov.sberschoollesson7hwk.data.Values
 /**
  * Adapter RecyclerView стартовой Activity
  * */
-class AdapterMainActivity(private val context: Context) : RecyclerView.Adapter<HolderMainActivity>() {
+class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainHolder>() {
 
     var values: List<Values> = RecyclerViewObject.dataList
 
     /**
      * Метод устанавливает соответствующий Layout
      * */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderMainActivity {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         val view = LayoutInflater.from(parent.context).inflate(
             R.layout.activity_main_item,
             parent,
             false
         )
-        return HolderMainActivity(view, context)
+        return MainHolder(view, context)
     }
 
     /**
      * Метод привязывает данные к соответсвующему холдэру
      * */
-    override fun onBindViewHolder(holder: HolderMainActivity, position: Int) {
+    override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val value = values[position]
         holder.bind(value)
     }
